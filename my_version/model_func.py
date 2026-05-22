@@ -10,7 +10,7 @@ import torchvision
 import torch.nn as nn
 import torch
 import pandas as pd
-import tqdm
+from tqdm import tqdm
 import numpy as np
 
 from plotting_func import plot_loss
