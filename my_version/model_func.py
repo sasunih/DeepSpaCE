@@ -217,7 +217,7 @@ def run_train(outDir, net, dataloaders_dict, optimizer, num_epochs, device, earl
 
         
         ### append loss to DataFrame
-        res_df = res_df.append([pd.Series([train_loss,valid_loss,train_acc_or_cor,valid_acc_or_cor],index=res_df.columns)], ignore_index=True)
+        res_df = pd.concat([res_df, pd.DataFrame([[train_loss, valid_loss, train_acc_or_cor, valid_acc_or_cor]], columns=res_df.columns)], ignore_index=True)
         
         ### save training_loss.txt (happens at end of each epoch)
         res_df.to_csv(outDir+"/training_loss_"+name+".txt", sep='\t', float_format='%.6f')
