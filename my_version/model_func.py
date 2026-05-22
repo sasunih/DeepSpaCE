@@ -262,7 +262,7 @@ def run_train(outDir, net, dataloaders_dict, optimizer, num_epochs, device, earl
         print ("elapsed_time:{:.2f}".format(elapsed_time) + "[sec]")
 
         ### append loss to DataFrame (per epoch)
-        time_df = time_df.append([pd.Series([elapsed_time],index=time_df.columns)], ignore_index=True)
+        time_df = pd.concat([time_df, pd.DataFrame([[elapsed_time]], columns = time_df.columns)], ignore_index = True)
 
         # save training loss to txt file (per epoch)
         ### save training_loss.txt
