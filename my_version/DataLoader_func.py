@@ -19,7 +19,7 @@ def makeDataList(rootDir, sampleNames, clusteringMethod, extraSize, geneSymbols,
     for sample in sampleNames:
         tmp = pd.read_csv(rootDir+"/"+sample+"/SpaceRanger/analysis/clustering/"+clusteringMethod+"/clusters.csv")
         tmp['Sample'] = sample
-        cluster_list = cluster_list.append(tmp, ignore_index=True)
+        cluster_list = pd.concat([cluster_list, tmp], ignore_index=True)
 
     # Print head of cluster dataframe
     print("cluster_list: "+str(cluster_list.shape))
@@ -48,7 +48,7 @@ def makeDataList(rootDir, sampleNames, clusteringMethod, extraSize, geneSymbols,
         tmp['imageID'] = tmp.index
 
         tmp['Sample'] = sample
-        tissue_pos = tissue_pos.append(tmp, ignore_index=True)
+        tissue_pos = pd.concat([tissue_pos, tmp], ignore_index = True)
 
     print("tissue_pos: "+str(tissue_pos.shape))
     print(tissue_pos.head())
@@ -83,7 +83,7 @@ def makeDataList(rootDir, sampleNames, clusteringMethod, extraSize, geneSymbols,
         tmp['Barcode'] = tmp['Barcode'].str.replace('.','-')
         tmp['Sample'] = sample
 
-        exp_mat = exp_mat.append(tmp, ignore_index=True)
+        exp_mat = pd.concat([exp_mat, tmp], ignore_index = True)
        
 
     print("exp_mat: "+str(exp_mat.shape))
@@ -132,8 +132,8 @@ def makeDataList(rootDir, sampleNames, clusteringMethod, extraSize, geneSymbols,
         tmp = tmp.loc[:,['Barcode','ImageFilter']]
 
         tmp['Sample'] = sample
-        cluster_pos_filter_df = cluster_pos_filter_df.append(tmp, ignore_index=True)
-
+        cluster_pos_filter_df = pd.concat([cluster_pos_filter_df, tmp], ignore_index = True)
+        
     print("cluster_pos_filter_df: "+str(cluster_pos_filter_df.shape))
     print(cluster_pos_filter_df.head())
 
