@@ -265,7 +265,7 @@ class ImageTransform():
                         #albu.IAAAdditiveGaussianNoise(p=1.0), # deprecated
                     #    albu.GaussNoise(p=1.0)
                 #    ], p=1.0),
-                albu.GaussianNoise(p = 1.0),
+                albu.GaussNoise(p = 1.0),
                     albu.OneOf([
                         albu.MotionBlur(p=1.0),
                         albu.MedianBlur(p=1.0),
