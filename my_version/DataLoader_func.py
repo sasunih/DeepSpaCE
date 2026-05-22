@@ -257,7 +257,7 @@ class ImageTransform():
                 albu.RGBShift(p=0.5) # apply constant uniform shift to each channel of input RGB image.
             ], p=1.0),
             'crop': albu.Compose([
-                albu.RandomResizedCrop(height=resize, width=resize, scale=(0.5, 1.0), p=0.5), # Crop a random part of the input and rescale it to a specified size. (scale = size of crop relate to orig image)
+                albu.RandomResizedCrop(size = (resize, resize), scale=(0.5, 1.0), p=0.5), # Crop a random part of the input and rescale it to a specified size. (scale = size of crop relate to orig image)
             ], p=1.0),
             'random': albu.Compose([ # random selection of previous.
                 albu.OneOf([
