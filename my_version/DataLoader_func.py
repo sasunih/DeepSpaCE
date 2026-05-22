@@ -91,7 +91,7 @@ def makeDataList(rootDir, sampleNames, clusteringMethod, extraSize, geneSymbols,
 
     # Convert exp_mat df to numpy array
     print("### Min-Max scaling ###")
-    exp_mat_np = exp_mat.iloc[:,range(2,exp_mat.shape[1])].to_numpy()
+    exp_mat_np = exp_mat.iloc[:,range(2,exp_mat.shape[1])].to_numpy().copy()
 
     # min_max scale (sklearn.preprocessing.minmax_scale) the gene expression values of each gene to between 0 and 1 (so now the different genes are at different scales compared to each other)
     for i in range(exp_mat.shape[1]-2):
