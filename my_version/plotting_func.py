@@ -121,7 +121,7 @@ def plot_correlation_scatter_hist(outDir, valid_labels, valid_preds, geneSymbols
         rmse = np.sqrt(mean_squared_error(lab, pred))
         rmse_minmax = np.sqrt(mean_squared_error(lab, minmax_scale(pred)))
                               
-        corR_df = corR_df.append(pd.Series([geneSymbols[i],corR_tmp,rmse,rmse_minmax], index=['geneSymbols','corR','RMSE','RMSE_MinMax']), ignore_index=True)
+        corR_df = pd.concat(corR_df, pd.DataFrame([[geneSymbols[i],corR_tmp,rmse,rmse_minmax]], columns = ['geneSymbols','corR','RMSE','RMSE_MinMax']), ignore_index = True)
 
                               
     corR_df.to_csv(outDir+"/corR_"+name+".txt", index=False, sep='\t', float_format='%.6f')
