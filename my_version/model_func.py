@@ -13,11 +13,11 @@ import pandas as pd
 import tqdm
 import numpy as np
 
-from .plotting_func import plot_loss
-from .plotting_func import plot_acc
-from .plotting_func import plot_conf_matrix
-from .plotting_func import make_classification_report
-from.plotting_func import plot_correlation_scatter_hist
+from plotting_func import plot_loss
+from plotting_func import plot_acc
+from plotting_func import plot_conf_matrix
+from plotting_func import make_classification_report
+from plotting_func import plot_correlation_scatter_hist
 
 # ---------
 # model creation

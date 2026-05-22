@@ -9,12 +9,12 @@ import numpy as np
 import random
 import torch.optim as optim
 
-from .DataLoader_func import makeDataList
-from .DataLoader_func import makeTrainDataloader
-from .DataLoader_func import makeTestDataloader
-from .model_func import make_model
-from .model_func import run_train
-from .model_func import run_test
+from DataLoader_func import makeDataList
+from DataLoader_func import makeTrainDataloader
+from DataLoader_func import makeTestDataloader
+from model_func import make_model
+from model_func import run_train
+from model_func import run_test
 
 #---------------
 # Setup
