@@ -368,8 +368,8 @@ def makeTrainDataloader(rootDir, data_list_df, geneSymbols, size, mean, std, aug
     print(train_dataset.__getitem__(index)[1])
 
     # make DataLoader using pytorch funcion
-    train_dataloader = torch.utils.data.DataLoader(train_dataset, batch_size=batch_size, shuffle=True, drop_last=False, num_workers=1, pin_memory=False)
-    valid_dataloader = torch.utils.data.DataLoader(valid_dataset, batch_size=batch_size, shuffle=False, drop_last=False, num_workers=1, pin_memory=False)
+    train_dataloader = torch.utils.data.DataLoader(train_dataset, batch_size=batch_size, shuffle=True, drop_last=False, num_workers=8, pin_memory=True)
+    valid_dataloader = torch.utils.data.DataLoader(valid_dataset, batch_size=batch_size, shuffle=False, drop_last=False, num_workers=8, pin_memory=True)
 
     # Add dataloaders to dictionary
     dataloaders_dict = {"train": train_dataloader, "valid": valid_dataloader}
@@ -409,7 +409,7 @@ def makeTestDataloader(rootDir, data_list_df, model, geneSymbols, size, mean, st
 
     # make Dataloader using pytorch function, and put into dictionary?
     print("### make DataLoader ###")
-    test_dataloader = torch.utils.data.DataLoader(test_dataset, batch_size=batch_size, shuffle=False, drop_last=False, num_workers=1, pin_memory=False)
+    test_dataloader = torch.utils.data.DataLoader(test_dataset, batch_size=batch_size, shuffle=False, drop_last=False, num_workers=8, pin_memory=True)
 
     print("### make dictionary ###")
     dataloaders_dict_test = {"valid": test_dataloader}
